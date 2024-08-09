@@ -1,5 +1,5 @@
 {% set name = "langchain-mongodb" %}
-{% set version = "0.1.6" %}
+{% set version = "0.1.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/langchain_mongodb-{{ version }}.tar.gz
-  sha256: a7a6b66d5270d6f8732c4e848f9a3742bbd4485c8829a2d629332ee683b936d1
+  sha256: 7df9cc3af8ef2d2c943188f464ac4f952cbe90626a8252ce9f8e5af4202e6ebe
 
 build:
   noarch: python
