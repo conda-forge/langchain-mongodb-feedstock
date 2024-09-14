@@ -22,7 +22,7 @@ requirements:
   run:
     - python >=3.8.1,<4.0
     - pymongo >=4.6.1,<5.0
-    - langchain-core >=0.1.46,<0.3
+    - langchain-core <0.4,>=0.3
     - numpy >=1.0.0,<2.0.0
 
 test:
