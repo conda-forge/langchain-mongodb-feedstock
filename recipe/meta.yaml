@@ -24,6 +24,9 @@ requirements:
     - pymongo >=4.6.1,<5.0
     - langchain-core <0.4,>=0.3
     - numpy >=1.0.0,<2.0.0
+    - langchain
+    - langchain-text-splitters
+    - motor
 
 test:
   imports:
