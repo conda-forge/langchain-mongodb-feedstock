@@ -1,13 +1,13 @@
 {% set name = "langchain-mongodb" %}
-{% set version = "0.2.0" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/langchain_mongodb-{{ version }}.tar.gz
-  sha256: e5daf08edf56e0a86630cdba87c7e6c3305b6c38fd6e63e71fce86b1396ec65a
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/langchain_mongodb-{{ version }}.tar.gz
+  sha256: a7ad17f628da2adfb67465a1aa78264d67a730f9b2950f52788119c4fbcdb2fd
 
 build:
   noarch: python
@@ -16,14 +16,17 @@ build:
 
 requirements:
   host:
-    - python >=3.8,<4.0
+    - python {{ python_min }}
     - poetry-core >=1.0.0
     - pip
   run:
-    - python >=3.8.1,<4.0
+    - python >={{ python_min }}
     - pymongo >=4.6.1,<5.0
     - langchain-core <0.4,>=0.3
     - numpy >=1.0.0,<2.0.0
+    - langchain
+    - langchain-text-splitters
+    - motor
 
 test:
   imports:
@@ -32,6 +35,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/langchain-ai/langchain
