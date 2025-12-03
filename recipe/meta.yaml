@@ -1,5 +1,5 @@
 {% set name = "langchain-mongodb" %}
-{% set version = "0.7.2" %}
+{% set version = "0.9.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/langchain_mongodb-{{ version }}.tar.gz
-  sha256: 194312933e0275eb5279e32c32eb500a0a4856f033ff9c94c55225e2d121d202
+  sha256: eb33bace482a279b2c0e7c2c1948c51ed7fb9a008f237201a7dab33fa074b699
 
 build:
   noarch: python
@@ -20,13 +20,15 @@ requirements:
     - hatchling
     - pip
   run:
+    - langchain-classic >=1.0
+    - pymongo-search-utils >=0.1.0
     - lark <2.0.0,>=1.1.9
     - python >={{ python_min }}
     - pymongo >=4.6.1
-    - langchain-core >=0.3,<1.0
+    - langchain-core >=1.0
     - numpy >=1.26
-    - langchain >=0.3,<1.0
-    - langchain-text-splitters >=0.3,<1.0
+    - langchain >=1.0
+    - langchain-text-splitters >=1.0
     - motor
 
 test:
