@@ -1,0 +1,50 @@
+schema_version: 1
+
+context:
+  name: langchain-mongodb
+  version: "0.7.2"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/langchain_mongodb-${{ version }}.tar.gz
+  sha256: 194312933e0275eb5279e32c32eb500a0a4856f033ff9c94c55225e2d121d202
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - hatchling
+    - pip
+  run:
+    - lark <2.0.0,>=1.1.9
+    - python >=${{ python_min }}
+    - pymongo >=4.6.1
+    - langchain-core >=0.3,<1.0
+    - numpy >=1.26
+    - langchain >=0.3,<1.0
+    - langchain-text-splitters >=0.3,<1.0
+    - motor
+
+tests:
+  - python:
+      imports:
+        - langchain_mongodb
+      pip_check: true
+      python_version: ${{ python_min }}
+
+about:
+  summary: An integration package connecting MongoDB and LangChain
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/langchain-ai/langchain
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
