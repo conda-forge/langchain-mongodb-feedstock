@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: langchain-mongodb
-  version: "0.7.2"
+  version: "0.11.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/langchain_mongodb-${{ version }}.tar.gz
-  sha256: 194312933e0275eb5279e32c32eb500a0a4856f033ff9c94c55225e2d121d202
+  sha256: db483f12e8a4fdbbcfb0594881962fd1f0afcb38a3d42ee0d5fe8a2be20e1e86
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
