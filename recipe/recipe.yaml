@@ -11,6 +11,8 @@ package:
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/langchain_mongodb-${{ version }}.tar.gz
   sha256: db483f12e8a4fdbbcfb0594881962fd1f0afcb38a3d42ee0d5fe8a2be20e1e86
+  patches:
+    - patches/remove-langchain-dep.patch
 
 build:
   number: 0
@@ -36,7 +38,7 @@ tests:
   - python:
       imports:
         - langchain_mongodb
-      pip_check: false
+      pip_check: true
       python_version: ${{ python_min }}
 
 about:
